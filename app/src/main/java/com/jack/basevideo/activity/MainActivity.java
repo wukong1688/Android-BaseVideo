@@ -10,6 +10,8 @@ import android.support.v4.view.ViewPager;
 
 import com.jack.basevideo.R;
 import com.jack.basevideo.fragment.VideoListFragment;
+import com.zhangqie.zqvideolibrary.ZQVideoPlayer;
+import com.zhangqie.zqvideolibrary.ZQVideoPlayerStandard;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,4 +72,17 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (ZQVideoPlayer.backPress()) { //支持返回键退出全屏
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ZQVideoPlayer.releaseAllVideos();
+    }
 }
