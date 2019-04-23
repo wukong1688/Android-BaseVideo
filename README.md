@@ -1,4 +1,4 @@
-# Android_BaseVideo
+# Android-BaseVideo
 [Android] 类似今日头条 视频播放列表
 
 图片演示如下：
